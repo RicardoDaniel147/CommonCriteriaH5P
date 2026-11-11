@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Common Criteria · ISO/IEC 15408-2 · Catálogo interactivo de requisitos funcionales</title>
+<meta name="description" content="Catálogo interactivo de la Parte 2 de Common Criteria (ISO/IEC 15408-2:2022, CCMB-2022-11-002): 11 clases, 74 familias y 156 componentes funcionales de seguridad, en español.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b2038'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='26' font-weight='bold' fill='%23fff' text-anchor='middle'%3ECC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/estilos.css">
+</head>
+<body>
+<div class="libro" id="libro">
+
+  <!-- ==================== ÍNDICE LATERAL ==================== -->
+  <aside class="indice" id="indice">
+    <div class="indice-cabecera">
+      <button class="btn-hamburguesa" id="btnMenu" aria-label="Cerrar índice">✕</button>
+      <div class="marca">
+        <div class="marca-logo">CC</div>
+        <div>
+          <div class="marca-titulo">Common Criteria</div>
+          <div class="marca-sub">Parte 2 · ISO/IEC 15408-2:2022</div>
+        </div>
+      </div>
+      <div class="progreso">
+        <div class="progreso-barra"><div class="progreso-relleno" id="progresoRelleno"></div></div>
+        <div class="progreso-texto" id="progresoTexto">Página 1 de 12</div>
+      </div>
+    </div>
+    <nav class="indice-nav" id="indiceNav" aria-label="Índice del catálogo"></nav>
+    <div class="indice-pie">
+      <p>Resumen divulgativo del documento oficial <strong>CCMB-2022-11-002</strong> (CC:2022 Rev. 1). No sustituye al texto normativo.</p>
+      <p class="pie-creditos">Recurso educativo · Desarrollo de Software Seguro</p>
+    </div>
+  </aside>
+  <div class="capa-movil" id="capaMovil"></div>
+
+  <!-- ==================== CONTENIDO ==================== -->
+  <main class="escenario">
+    <header class="cabecera">
+      <button class="btn-hamburguesa" id="btnMenuAbierto" aria-label="Abrir índice">☰</button>
+      <div class="buscador">
+        <input type="search" id="buscador" placeholder="Buscar clase, familia o componente… (p. ej. FAU_GEN, clave, anonimato)" autocomplete="off" aria-label="Buscar en el catálogo">
+        <ul class="buscador-resultados" id="resultados" hidden></ul>
+      </div>
+    </header>
+
+    <div class="paginas" id="paginas"></div>
+
+    <footer class="pie-paginador">
+      <button class="btn-nav" id="btnPrev" title="Página anterior (←)">‹&nbsp;&nbsp;Anterior</button>
+      <button class="btn-nav btn-indice" id="btnIndice" title="Ir a la portada">≡ Índice</button>
+      <button class="btn-nav" id="btnNext" title="Página siguiente (→)">Siguiente&nbsp;&nbsp;›</button>
+    </footer>
+  </main>
+</div>
+
+<script src="assets/catalogo.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

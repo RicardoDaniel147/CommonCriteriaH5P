@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H5P · Catálogo de requisitos funcionales CC Parte 2 (Accordion)</title>
+<meta name="description" content="Reproductor H5P sin servidor del contenido 'Common Criteria · ISO/IEC 15408-2 · Catálogo de requisitos funcionales' (Accordion, 12 paneles), para GitHub Pages.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b2038'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='26' font-weight='bold' fill='%23fff' text-anchor='middle'%3ECC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles/h5p-fonts.css">
+<style>
+  :root {
+    --tinta: #17233b;
+    --tinta-suave: #51607c;
+    --fondo: #eef2f8;
+    --linea: #d7dfeb;
+    --navy: #0b2038;
+    --navy-2: #10305a;
+    --acento: hsl(210 70% 42%);
+    --peligro: #b3261e;
+    --sombra: 0 10px 30px rgba(10, 30, 60, .10);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--tinta);
+    line-height: 1.55;
+  }
+  .cabecera {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #e8eefb;
+    padding: 18px 22px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .marca-logo {
+    width: 44px; height: 44px; border-radius: 12px; flex: none;
+    background: linear-gradient(135deg, hsl(200 80% 45%), hsl(250 70% 55%));
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 19px; color: #fff; letter-spacing: .5px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  }
+  .marca h1 { margin: 0; font-size: 16.5px; }
+  .marca p { margin: 2px 0 0; font-size: 12px; color: #9db4d8; }
+  .acciones { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 8px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.28);
+    color: #e8eefb; text-decoration: none; font-size: 13.5px; font-weight: 600;
+    background: rgba(255,255,255,.08); transition: background .15s;
+  }
+  .btn:hover { background: rgba(255,255,255,.18); }
+  main { max-width: 980px; margin: 0 auto; padding: 18px 16px 40px; }
+  .nota {
+    background: #fff; border: 1px solid var(--linea); border-radius: 12px;
+    padding: 12px 16px; margin: 0 0 14px; font-size: 14px; color: var(--tinta-suave);
+    box-shadow: var(--sombra);
+  }
+  .nota strong { color: var(--tinta); }
+  #h5p-container { background: #fff; border: 1px solid var(--linea); border-radius: 12px; overflow: hidden; }
+  .error-carga {
+    display: none; margin: 10px 0 0; padding: 14px 16px;
+    border: 1px solid #f2c4c0; border-radius: 12px; background: #fdf3f2; color: var(--peligro); font-size: 14px;
+  }
+  .error-carga code { background: #f7e4e2; padding: 1px 6px; border-radius: 6px; }
+  footer { text-align: center; color: var(--tinta-suave); font-size: 12.5px; padding: 0 16px 26px; }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="marca-logo">CC</div>
+  <div class="marca">
+    <h1>Catálogo CC Parte 2 — contenido H5P (Accordion)</h1>
+    <p>ISO/IEC 15408-2:2022 · 11 clases · 74 familias · 156 componentes</p>
+  </div>
+  <nav class="acciones">
+    <a class="btn" href="./common-criteria-parte2.h5p" download>Descargar .h5p</a>
+    <a class="btn" href="../">Ir al libro interactivo</a>
+  </nav>
+</header>
+
+<main>
+  <p class="nota">
+    Este panel es el <strong>contenido H5P oficial (Accordion)</strong> reproducido con
+    <strong>h5p-standalone</strong> sin servidor. También puedes importar el archivo
+    <code>common-criteria-parte2.h5p</code> directamente en <strong>Lumi</strong>, <strong>Moodle</strong>
+    o <strong>H5P.com</strong>.
+  </p>
+  <div id="h5p-container"></div>
+  <div class="error-carga" id="errorCarga">
+    No se pudo cargar el reproductor H5P. Verifica que existan <code>main.bundle.js</code>,
+    <code>frame.bundle.js</code> y <code>styles/h5p.css</code> junto a esta página, y que el paquete
+    esté en <code>paquete-accordion/</code> (contenido extraído del <code>.h5p</code>).
+  </div>
+</main>
+
+<footer>Recurso educativo · Desarrollo de Software Seguro — no sustituye al texto normativo CCMB-2022-11-002.</footer>
+
+<script src="main.bundle.js" charset="UTF-8"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var contenedor = document.getElementById('h5p-container');
+  var aviso = document.getElementById('errorCarga');
+  if (typeof H5PStandalone === 'undefined' || !H5PStandalone.H5P) {
+    aviso.style.display = 'block';
+    return;
+  }
+  new H5PStandalone.H5P(contenedor, {
+    h5pJsonPath: './paquete-accordion',
+    librariesPath: './paquete-accordion/libraries',
+    frameJs: './frame.bundle.js',
+    frameCss: './styles/h5p.css',
+    frame: true,
+    fullScreen: true,
+    icon: true
+  }).catch(function (e) {
+    console.error(e);
+    aviso.style.display = 'block';
+  });
+});
+</script>
+</body>
+</html>

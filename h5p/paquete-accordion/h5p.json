@@ -1,0 +1,22 @@
+{
+  "title": "Common Criteria · ISO/IEC 15408-2 · Catálogo de requisitos funcionales (Parte 2)",
+  "language": "es",
+  "mainLibrary": "H5P.Accordion",
+  "embedTypes": [
+    "iframe"
+  ],
+  "license": "CC BY-SA",
+  "defaultLanguage": "es",
+  "preloadedDependencies": [
+    {
+      "machineName": "H5P.Accordion",
+      "majorVersion": 1,
+      "minorVersion": 0
+    },
+    {
+      "machineName": "H5P.AdvancedText",
+      "majorVersion": 1,
+      "minorVersion": 1
+    }
+  ]
+}
